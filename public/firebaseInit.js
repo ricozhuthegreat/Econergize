@@ -1,5 +1,5 @@
 // Initialize Firebase
-const firebaseConfig = {
+const config = {
   apiKey: "AIzaSyAJWkVyOlQhLk3nn-kzqYq_ZinqBgLRVUA",
   authDomain: "econergize.firebaseapp.com",
   databaseURL: "https://econergize.firebaseio.com",
@@ -9,4 +9,4 @@ const firebaseConfig = {
   appId: "1:626959907168:web:d0e4e8ee943e86a0"
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+let app = firebase.initializeApp(config);

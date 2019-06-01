@@ -6,6 +6,8 @@ let main = document.getElementById("main-body");
 // Sticky Header Menu div
 let header = document.getElementById("header-menu");
 
+let db = firebase.firestore(app);
+
 // Event Listener for DOM intro text append
 firebase.auth().onAuthStateChanged(function(user) {
   if (user === null) {
@@ -74,17 +76,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     header.appendChild(profileHeader);
 
-    // If the has not loggedin yet, append message stating that the user must first sign in
-    let logPrompt = document.createElement("H1");
-    let logPromptText = document.createTextNode("Hi");
+    let itemsList = document.createElement("ul");
 
-    logPrompt.appendChild(logPromptText);
+    // Get firebase data from users
+    let cUserItems = db.collection("users").doc(email);
 
-    // Add css
-    logPrompt.style.margin = '300px 435px';
-    logPrompt.style.align = 'center';
+    console.log(cUserItems);
 
-    main.appendChild(logPrompt);
-    console.log("H");
   }
 });
