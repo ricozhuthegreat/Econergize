@@ -78,17 +78,31 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     let itemsListDisplay = document.createElement("ul");
 
+    itemsListDisplay.style.margin = '300px 435px';
+    itemsListDisplay.style.align = 'center';
+
     // Get firebase data from users
     let cUserDocument = db.collection("users").doc(email);
 
     cUserDocument.get().then(function(doc) {
       if (doc.exists) {
+
+          // Get the data fields under a user
           let itemsList = doc.data();
-          let items = itemsList.Items;
+          let item = itemsList.Items.Item;
+
+          // Item values
+          let itemName = item.Name;
+          let itemSusVal = item.SusVal;
+
+          console.log(itemName);
+          console.log(itemSusVal);
+
           let itemsListAppend = document.createElement("li");
-          itemsListAppend.appendChild(document.createTextNode(items));
-                    console.log(items);
-                    console.log(itemsList);
+
+          itemsListAppend.appendChild(document.createTextNode(itemName));
+          itemsListDisplay.appendChild(itemsListAppend);
+
         } else {
           // doc.data() will be undefined in this case
           console.log("No such document!");
