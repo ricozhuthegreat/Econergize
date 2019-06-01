@@ -78,7 +78,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     let itemsListDisplay = document.createElement("ul");
 
-    itemsListDisplay.style.margin = '100px 150px';
+    itemsListDisplay.style.margin = '150px 50px';
     itemsListDisplay.style.align = 'left';
 
     // Get firebase data from users

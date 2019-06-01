@@ -33,3 +33,12 @@ body {
 h1 {
   font-family: Arial;
 }
+
+ul {
+  list-style-type: none;
+  border: 1px solid black;
+}
+
+li {
+  padding: 10px;
+}
