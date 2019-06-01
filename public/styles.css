@@ -1,0 +1,35 @@
+#header-menu {
+  position: fixed;
+  top: 0;
+  align: center;
+  width: 100%;
+  background: #4286f4;
+  color: white;
+}
+
+#header-title {
+  margin-left: 50px;
+  float: left;
+}
+
+#header-button {
+  background: #4286f4;
+  float: right;
+  color: white;
+  border: none;
+  padding: 32px 30px;
+  text-decoration: none;
+  font-family: Arial;
+}
+
+#header-button:hover {
+  background: #1f64d3;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-family: Arial;
+}
