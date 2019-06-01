@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<HTML>
+
+<Head>
+
+  <link type="text/css" rel ="stylesheet" href = "login.css"/>
+  <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var firebaseConfig = {
+    apiKey: "AIzaSyAJWkVyOlQhLk3nn-kzqYq_ZinqBgLRVUA",
+    authDomain: "econergize.firebaseapp.com",
+    databaseURL: "https://econergize.firebaseio.com",
+    projectId: "econergize",
+    storageBucket: "econergize.appspot.com",
+    messagingSenderId: "626959907168",
+    appId: "1:626959907168:web:d0e4e8ee943e86a0"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  </script>
+
+
+</Head>
+
+<Body>
+
+  <div id="def-log-in">
+    <form>
+      <div>
+        <label for="username">Username:</label>
+        <input id="email" type="text" name="username" placeholder="mysupercoolemail@hmail.com"> <br>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input id="password" type="password" name="password" placeholder="hunter2">
+      <div/>
+      <div>
+        <input id="log-in" type="submit" value="Log in">
+        <div id="firebaseui-auth-container"></div>
+      </div>
+    </form>
+  </div>
+
+  <!--Handle auth events-->
+  <script>
+    firebase.auth().onAuthStateChanged(function(user) {
+      console.log(user);
+      if (user !== null) {
+        window.location = "index.html";
+      }
+    });
+  </script>
+
+  <!--Handle page events-->
+  <script>
+    document.querySelector('#log-in').addEventListener('click', function(e) {
+      // Prevent refreshing to get POST data and prevent null auths
+      e.preventDefault();
+      e.stopPropagation();
+      // Get query email and password info
+      let email = document.querySelector('#email').value;;
+      let password = document.querySelector('#password').value;
+      // Firebase sign in
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+      })
+    });
+  </script>
+
+</Body>
+
+</HTML>
