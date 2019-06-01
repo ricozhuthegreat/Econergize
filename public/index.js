@@ -78,40 +78,32 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     let itemsListDisplay = document.createElement("ul");
 
-    itemsListDisplay.style.margin = '300px 435px';
-    itemsListDisplay.style.align = 'center';
+    itemsListDisplay.style.margin = '100px 150px';
+    itemsListDisplay.style.align = 'left';
 
     // Get firebase data from users
     let cUserDocument = db.collection("users").doc(email);
 
-    cUserDocument.get().then(function(doc) {
-      if (doc.exists) {
+    cUserDocument.collection("Items").get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        // Get the data fields under a user
+        let item = doc.data();
 
-          // Get the data fields under a user
-          let itemsList = doc.data();
-          let item = itemsList.Items.Item;
+        let itemName = item.Name;
+        let itemSusVal = item.SusVal;
 
-          // Item values
-          let itemName = item.Name;
-          let itemSusVal = item.SusVal;
+        console.log(itemName);
+        console.log(itemSusVal);
 
-          console.log(itemName);
-          console.log(itemSusVal);
+        let itemsListAppend = document.createElement("li");
 
-          let itemsListAppend = document.createElement("li");
+        itemsListAppend.appendChild(document.createTextNode(itemName + "\t" + itemSusVal));
+        itemsListDisplay.appendChild(itemsListAppend);
 
-          itemsListAppend.appendChild(document.createTextNode(itemName));
-          itemsListDisplay.appendChild(itemsListAppend);
-
-        } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
-        }
-      }).catch(function(error) {
-        console.log("Error getting document:", error);
       });
+    })
 
-      main.appendChild(itemsListDisplay);
+    main.appendChild(itemsListDisplay);
 
   }
 });
