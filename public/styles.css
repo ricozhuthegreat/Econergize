@@ -34,11 +34,17 @@ h1 {
   font-family: Arial;
 }
 
+h2 {
+  font-family: Arial;
+}
+
 ul {
   list-style-type: none;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 
 li {
-  padding: 10px;
+  font-family: Arial;
+  width: 100%;
+  padding: 2%;
 }

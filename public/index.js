@@ -78,9 +78,15 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     let itemsListDisplay = document.createElement("ul");
 
-    itemsListDisplay.style.margin = '150px 50px';
+    itemsListDisplay.style.margin = '5% 150px';
     itemsListDisplay.style.align = 'left';
 
+    let bodyTitle = document.createElement("h2");
+
+    bodyTitle.style.margin = '150px 150px 20px';
+    bodyTitle.appendChild(document.createTextNode("Items and Sustainability Values"));
+
+    main.appendChild(bodyTitle);
     // Get firebase data from users
     let cUserDocument = db.collection("users").doc(email);
 
@@ -97,7 +103,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         let itemsListAppend = document.createElement("li");
 
-        itemsListAppend.appendChild(document.createTextNode(itemName + "\t" + itemSusVal));
+        itemsListAppend.appendChild(document.createTextNode(itemName + " " + itemSusVal));
         itemsListDisplay.appendChild(itemsListAppend);
 
       });
