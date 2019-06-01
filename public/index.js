@@ -76,12 +76,28 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     header.appendChild(profileHeader);
 
-    let itemsList = document.createElement("ul");
+    let itemsListDisplay = document.createElement("ul");
 
     // Get firebase data from users
-    let cUserItems = db.collection("users").doc(email);
+    let cUserDocument = db.collection("users").doc(email);
 
-    console.log(cUserItems);
+    cUserDocument.get().then(function(doc) {
+      if (doc.exists) {
+          let itemsList = doc.data();
+          let items = itemsList.Items;
+          let itemsListAppend = document.createElement("li");
+          itemsListAppend.appendChild(document.createTextNode(items));
+                    console.log(items);
+                    console.log(itemsList);
+        } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+        }
+      }).catch(function(error) {
+        console.log("Error getting document:", error);
+      });
+
+      main.appendChild(itemsListDisplay);
 
   }
 });
