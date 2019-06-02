@@ -34,7 +34,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     // If the has not loggedin yet, append message stating that the user must first sign in
     let logPrompt = document.createElement("H1");
-    let logPromptText = document.createTextNode("Please Log in to Continue");
+    let logPromptText = document.createTextNode("Welcome to Econergize. Please login to continue.");
 
     logPrompt.appendChild(logPromptText);
 
