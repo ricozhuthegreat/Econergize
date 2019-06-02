@@ -45,6 +45,26 @@ ul {
 
 li {
   font-family: Arial;
-  width: 100%;
   padding: 2%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+#container {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#login-button button {
+  cursor: pointer;
+  font-family: Helvetica, Arial, sans-serif;
 }
