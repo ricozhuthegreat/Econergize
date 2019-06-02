@@ -11,6 +11,7 @@ let db = firebase.firestore(app);
 // Event Listener for DOM intro text append
 firebase.auth().onAuthStateChanged(function(user) {
   if (user === null) {
+
     // Sticky-Header text append with a href to login and signup pages
     let loginHeader = document.createElement("a");
     let signupHeader = document.createElement("a");
@@ -18,8 +19,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     loginHeader.setAttribute("href", "login.html");
     signupHeader.setAttribute("href", "signup.html");
 
-    loginHeader.setAttribute("id", "header-button");
-    signupHeader.setAttribute("id", "header-button");
+    loginHeader.setAttribute("id", "main-button-login");
+    signupHeader.setAttribute("id", "main-button-signup");
 
     let loginText = document.createTextNode("Log in");
     let signupText = document.createTextNode("Sign up");
@@ -27,24 +28,30 @@ firebase.auth().onAuthStateChanged(function(user) {
     loginHeader.appendChild(loginText);
     signupHeader.appendChild(signupText);
 
-    header.appendChild(loginHeader);
-    header.appendChild(signupHeader);
-
     // Main Body text append
 
     // If the has not loggedin yet, append message stating that the user must first sign in
     let logPrompt = document.createElement("H1");
     let logPromptText = document.createTextNode("Welcome to Econergize. Please login to continue.");
 
+    logPrompt.id = "left-panel";
+
     logPrompt.appendChild(logPromptText);
 
     // Add css
-    logPrompt.style.margin = '300px 435px';
-    logPrompt.style.align = 'center';
+    logPrompt.style.margin = '100px 100px';
+    logPrompt.style.align = 'left';
+
+    document.getElementById("right-panel").appendChild(loginHeader);
+    document.getElementById("right-panel").appendChild(signupHeader);
 
     main.appendChild(logPrompt);
   } else if (user !== null) {
     // User has signed in already, append with profile page and stats
+
+    header.classList.remove("hidden");
+    body.classList.remove("grad");
+    document.getElementById("login-button").classList.add("hidden");
 
     // Add logout button
     let logoutHeader = document.createElement("a");
