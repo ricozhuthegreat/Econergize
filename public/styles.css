@@ -87,6 +87,18 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
+#welcome {
+  float: right;
+}
+
+#picture {
+  float: right;
+  position: absolute;
+  width: 50px;
+  height: 80px;
+  margin-right: 50px;
+}
+
 .grad {
   background-image: linear-gradient(50deg, red, yellow);
 }

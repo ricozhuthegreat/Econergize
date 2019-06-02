@@ -4,11 +4,10 @@
 <Head>
 
   <link type="text/css" rel ="stylesheet" href = "login.css"/>
-  <link rel="stylesheet" href="style.css" />
   <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
   <script>
   // Initialize Firebase
-  var firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyAJWkVyOlQhLk3nn-kzqYq_ZinqBgLRVUA",
     authDomain: "econergize.firebaseapp.com",
     databaseURL: "https://econergize.firebaseio.com",
@@ -37,10 +36,7 @@
       <div/>
       <div>
         <input id="log-in" type="submit" value="Log in">
-        <div id="firebaseui-auth-container"></div>
       </div>
-
-      <div id="login-button"></div>
 
   <!--Handle auth events-->
   <script>
