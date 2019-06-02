@@ -42,10 +42,20 @@ firebase.auth().onAuthStateChanged(function(user) {
     logPrompt.style.margin = '100px 100px';
     logPrompt.style.align = 'left';
 
+    let infoText = document.createElement("p");
+    infoText.appendChild(document.createTextNode("Welcome to the Premier Commercial Sustainability Tracker for Consumers of All Types"));
+
+    infoText.id = "left-panel";
+
+    infoText.style.align = 'center';
+    infoText.style.font = 'bold';
+    infoText.style.margin = '155px 100px';
+
     document.getElementById("right-panel").appendChild(loginHeader);
     document.getElementById("right-panel").appendChild(signupHeader);
 
     main.appendChild(logPrompt);
+    main.appendChild(infoText);
   } else if (user !== null) {
     // User has signed in already, append with profile page and stats
 
