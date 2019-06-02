@@ -15,8 +15,8 @@ window.snapKitInit = () => {
         document.getElementById("header-menu").classList.remove("hidden");
         document.getElementById("login-button").classList.add("hidden")
         document.getElementById("profile").classList.remove("hidden")
-        document.getElementById("picture").src = data["data"]["me"]["bitmoji"]["avatar"]
         document.getElementById("welcome").appendChild(document.createTextNode("Welcome, " + data["data"]["me"]["displayName"] + "!"))
+        document.getElementById("picture").src = data["data"]["me"]["bitmoji"]["avatar"]
 
         SDKManualInit();
 
