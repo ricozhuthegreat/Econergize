@@ -32,7 +32,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     // If the has not loggedin yet, append message stating that the user must first sign in
     let logPrompt = document.createElement("H1");
-    let logPromptText = document.createTextNode("Welcome to Econergize. Please login to continue.");
+    let logPromptText = document.createTextNode("Welcome to Econergize.");
 
     logPrompt.id = "left-panel";
 
@@ -43,7 +43,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     logPrompt.style.align = 'left';
 
     let infoText = document.createElement("p");
-    infoText.appendChild(document.createTextNode("Welcome to the Premier Commercial Sustainability Tracker for Consumers of All Types"));
+    infoText.appendChild(document.createTextNode("The Premier Commercial Sustainability Tracker for Consumers of All Types."));
 
     infoText.id = "left-panel";
 
